@@ -39,6 +39,7 @@
 | **Database & Cache Clients** | ✅ Done | MongoDB Mongoose client (`src/config/db.ts`) with reconnect/failover hooks, Redis `ioredis` client (`src/config/redis.ts`) with ping monitoring. |
 | **Multi-Tenancy Engine** | ✅ Done | Hospital Tenant Mongoose Model (`src/models/tenant.model.ts`), Request type merging (`src/types/express.d.ts`), and Subdomain/Header extraction middleware with Redis cache fallback (`src/middlewares/tenant.middleware.ts`). |
 | **Git Hooks & Code Quality (Husky)** | ✅ Done | Installed Husky, Lint-Staged, ESLint (Flat Config), Prettier, and automated pre-commit hook running `tsc --noEmit` and `eslint --fix` before any commit can pass. |
+| **Multi-Tenant Auth & RBAC (Milestone 2)** | ✅ Done | User model with per-tenant compound index (`tenantId: 1, email: 1`), 5 roles enum (`SUPERADMIN`, `HOSPITAL_ADMIN`, `DOCTOR`, `RECEPTIONIST`, `PATIENT`), bcrypt password hashing, JWT Access (15m) + Redis Refresh Token (7d) rotation, Cross-tenant security guard, and role-based `authorize()` middleware (`src/routes/auth.routes.ts`). |
 
 ---
 

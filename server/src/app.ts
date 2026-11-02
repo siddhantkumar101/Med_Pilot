@@ -7,6 +7,7 @@ import { env } from "./config/env";
 import { redis } from "./config/redis";
 import { tenantMiddleware } from "./middlewares/tenant.middleware";
 import { errorHandler, notFoundHandler } from "./middlewares/error.middleware";
+import authRouter from "./routes/auth.routes";
 
 export const createApp = (): Application => {
   const app = express();
@@ -59,6 +60,9 @@ export const createApp = (): Application => {
       tenant: req.tenant,
     });
   });
+
+  // Authentication & RBAC routes
+  app.use("/api/v1/auth", authRouter);
 
   // Catch-all 404 & Centralized Error Handler
   app.use(notFoundHandler);

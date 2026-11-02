@@ -14,6 +14,10 @@ const envSchema = z.object({
   REDIS_PORT: z.string().default("6379").transform((val) => parseInt(val, 10)),
   REDIS_PASSWORD: z.string().optional().default(""),
   COOKIE_SECRET: z.string().min(10, "COOKIE_SECRET should be at least 10 chars"),
+  JWT_SECRET: z.string().min(10, "JWT_SECRET should be at least 10 chars").default("med_flow_super_secret_jwt_key_2026"),
+  JWT_EXPIRES_IN: z.string().default("15m"),
+  JWT_REFRESH_SECRET: z.string().min(10, "JWT_REFRESH_SECRET should be at least 10 chars").default("med_flow_super_secret_refresh_key_2026"),
+  JWT_REFRESH_EXPIRES_IN: z.string().default("7d"),
 });
 
 const parseEnv = () => {
