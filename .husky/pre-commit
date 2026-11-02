@@ -1,0 +1,5 @@
+# 1. Run TypeScript type check on server
+npm --prefix server run type-check
+
+# 2. Run ESLint & Prettier staged checks
+npm --prefix server exec lint-staged
